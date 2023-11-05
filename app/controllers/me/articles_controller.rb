@@ -14,9 +14,8 @@ end
 def create
 	byebug
 	@article = current_user.articles.new(article_params)
-	#@article.user_id = current_user.id if current_user
 	if @article.save
-  		redirect_to @article
+  		redirect_to me_articles_path
 	else
   		render :new, status: :unprocessable_entity
 	end
@@ -40,7 +39,7 @@ def destroy
 	@article = Article.find(params[:id])
 	@article.destroy
 
-	redirect_to root_path, status: :see_other
+	redirect_to me_articles_path, status: :see_other
 end
 
 private
