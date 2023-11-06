@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: 'visitor#index'
+  resources :articles, only: [:show] 
   devise_for :users
   namespace :me do 
     resources :articles

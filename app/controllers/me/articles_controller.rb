@@ -4,7 +4,7 @@ def index
 end
 
 def show
-	@article = Article.find(params[:id])
+	@article = Article.friendly.find(params[:id])
 end
 
 def new
@@ -12,7 +12,6 @@ def new
 end
 
 def create
-	byebug
 	@article = current_user.articles.new(article_params)
 	if @article.save
   		redirect_to me_articles_path
@@ -22,7 +21,7 @@ def create
 end
 
 def edit
-	@article = Article.find(params[:id])
+	@article = Article.friendly.find(params[:id])
 end
 
 def update
