@@ -1,6 +1,13 @@
 <h1><%= @article.title %></h1>
 
 <p><%= @article.description %></p>
+<%= form_with model: [:me, @article, @article.comments.build] do |f|%>
+	<%= f.label :content %><br>
+    <%= f.text_field :content %><br>
+    <div>
+     <%= f.submit %>
+    </div>
+<% end %>
 <% @article.comments.each do |comment| %>
- <li></li><%= comment.content %> </li>
+	<li><%= comment.content %> </li>
 <% end %>
