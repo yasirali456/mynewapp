@@ -1,10 +1,11 @@
 class Me::CommentsController < ApplicationController
 
 def create
+	@article = Article.find_by_slug(params[:article_id])
 	@comment = current_user.comments.new(comment_params)
-	byebug
+	@comment.article_id = @article.id
 	if @comment.save
-  		redirect_to root_path
+		request.referrer
 	else
   		request.referrer
 	end
