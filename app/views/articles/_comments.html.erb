@@ -1,0 +1,5 @@
+<div id=comment>
+	<% @article.comments.each do |comment| %>
+		<%= render 'comment', comment: comment %>
+	<% end %>
+</div>

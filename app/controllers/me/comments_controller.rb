@@ -1,5 +1,15 @@
 class Me::CommentsController < ApplicationController
 
+def init_reply
+	@reply = Comment.new(parent_id: params[:id])
+end
+
+def create_reply
+	binding.pry
+	@comment = Comment.find(params[:comment_id])
+	@reply = current_user.comments.new(comment_params)
+end
+
 def create
 	@article = Article.find_by_slug(params[:article_id])
 	@comment = current_user.comments.new(comment_params)

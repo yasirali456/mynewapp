@@ -1,0 +1,5 @@
+<div id=reply_<%= comment.id %>>
+	<li><%= comment.content %> </li>
+
+	<li><%= link_to "replay", init_reply_me_comment_path(comment), remote: true %></li>
+</div>

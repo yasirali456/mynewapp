@@ -1,0 +1,7 @@
+<%= form_with url: "/me/comments/#{params[:id]}/create_reply", method: :post, remote: true do |f|%>
+	<%= f.label :content %><br>
+    <%= f.text_field :content, id: "message_content" %><br>
+    <div>
+     <%= f.submit %>
+    </div>
+<% end %>
